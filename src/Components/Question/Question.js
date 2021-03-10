@@ -14,6 +14,26 @@ const buttonStyles = {
 }
 
 const Question = ({ question, correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThree }) => {
+	const answers = [correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThree]
+
+	const shuffleAnswers = (array) => {
+		let currentIndex = array.length,
+			temporaryValue,
+			randomIndex
+
+		while (0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex)
+			currentIndex -= 1
+
+			temporaryValue = array[currentIndex]
+			array[currentIndex] = array[randomIndex]
+			array[randomIndex] = temporaryValue
+		}
+		return array
+	}
+
+	shuffleAnswers(answers)
+
 	return (
 		<Container style={{ background: '#111', color: 'white' }}>
 			<h1 style={{ fontSize: '3rem', padding: '2rem', textAlign: 'center' }}>
@@ -39,12 +59,12 @@ const Question = ({ question, correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThre
 				style={{ display: 'flex' }}
 			>
 				<Button style={buttonStyles}>
-					{correctAns
+					{answers[0]
 						.replace('&#039;', "'")
 						.replace('&rsquo;', "'")}
 				</Button>
 				<Button style={buttonStyles}>
-					{wrongAnsOne
+					{answers[1]
 						.replace('&#039;', "'")
 						.replace('&rsquo;', "'")}
 				</Button>
@@ -56,12 +76,12 @@ const Question = ({ question, correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThre
 				style={{ display: 'flex' }}
 			>
 				<Button style={buttonStyles}>
-					{wrongAnsTwo
+					{answers[2]
 						.replace('&#039;', "'")
 						.replace('&rsquo;', "'")}
 				</Button>
 				<Button style={buttonStyles}>
-					{wrongAnsThree
+					{answers[3]
 						.replace('&#039;', "'")
 						.replace('&rsquo;', "'")}
 				</Button>
