@@ -29,7 +29,20 @@ function TabPanel(props) {
 		>
 			{value === index && (
 				<Box p={3}>
-					<Typography>{children}</Typography>
+					<Typography
+						style={{
+							fontSize:
+								'4rem',
+							textAlign:
+								'center',
+							background:
+								'#111',
+							color:
+								'white',
+						}}
+					>
+						{children}
+					</Typography>
 				</Box>
 			)}
 		</div>
@@ -145,7 +158,7 @@ const Header = () => {
 				Board Games
 			</TabPanel>
 			<TabPanel value={value} index={5}>
-				Science & Nature
+				Science and Nature
 			</TabPanel>
 			<TabPanel value={value} index={6}>
 				Mathematics
