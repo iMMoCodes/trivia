@@ -39,10 +39,14 @@ const Question = ({ question, correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThre
 				style={{ display: 'flex' }}
 			>
 				<Button style={buttonStyles}>
-					{correctAns.replace('&#039;', "'")}
+					{correctAns
+						.replace('&#039;', "'")
+						.replace('&rsquo;', "'")}
 				</Button>
 				<Button style={buttonStyles}>
-					{wrongAnsOne.replace('&#039;', "'")}
+					{wrongAnsOne
+						.replace('&#039;', "'")
+						.replace('&rsquo;', "'")}
 				</Button>
 			</ButtonGroup>
 			<ButtonGroup
@@ -52,10 +56,14 @@ const Question = ({ question, correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThre
 				style={{ display: 'flex' }}
 			>
 				<Button style={buttonStyles}>
-					{wrongAnsTwo.replace('&#039;', "'")}
+					{wrongAnsTwo
+						.replace('&#039;', "'")
+						.replace('&rsquo;', "'")}
 				</Button>
 				<Button style={buttonStyles}>
-					{wrongAnsThree.replace('&#039;', "'")}
+					{wrongAnsThree
+						.replace('&#039;', "'")
+						.replace('&rsquo;', "'")}
 				</Button>
 			</ButtonGroup>
 		</Container>
