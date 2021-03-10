@@ -22,7 +22,6 @@ function App() {
 				setDifficulty={setDifficulty}
 				category={category}
 			/>
-			<h1>HEY</h1>
 		</>
 	)
 }
