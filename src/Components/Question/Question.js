@@ -10,20 +10,40 @@ const buttonStyles = {
 	flex: '1',
 	margin: '10px 10px',
 	borderRadius: '20px',
+	textTransform: 'capitalize',
 }
 
 const Question = ({ question, correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThree }) => {
 	return (
 		<Container style={{ background: '#111', color: 'white' }}>
-			<h1 style={{ fontSize: '3rem', padding: '2rem', textAlign: 'center' }}>{question}</h1>
+			<h1 style={{ fontSize: '3rem', padding: '2rem', textAlign: 'center' }}>
+				{question
+					.replace('&quot;', '"')
+					.replace('&quot;', '"')
+					.replace('&quot;', '"')
+					.replace('&quot;', '"')
+					.replace('&#039;', "'")
+					.replace('&#039;', "'")
+					.replace('&#039;', "'")
+					.replace('&ldquo;', '"')
+					.replace('&rsquo;', "'")
+					.replace('&rdquo;', "'")
+					.replace('&hellip;', '_')
+					.replace('&pi;', 'pi')
+					.replace('&eacute;', 'é')}
+			</h1>
 			<ButtonGroup
 				variant='contained'
 				color='primary'
 				aria-label='contained primary button group'
 				style={{ display: 'flex' }}
 			>
-				<Button style={buttonStyles}>{correctAns}</Button>
-				<Button style={buttonStyles}>{wrongAnsOne}</Button>
+				<Button style={buttonStyles}>
+					{correctAns.replace('&#039;', "'")}
+				</Button>
+				<Button style={buttonStyles}>
+					{wrongAnsOne.replace('&#039;', "'")}
+				</Button>
 			</ButtonGroup>
 			<ButtonGroup
 				variant='contained'
@@ -31,8 +51,12 @@ const Question = ({ question, correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThre
 				aria-label='contained primary button group'
 				style={{ display: 'flex' }}
 			>
-				<Button style={buttonStyles}>{wrongAnsTwo}</Button>
-				<Button style={buttonStyles}>{wrongAnsThree}</Button>
+				<Button style={buttonStyles}>
+					{wrongAnsTwo.replace('&#039;', "'")}
+				</Button>
+				<Button style={buttonStyles}>
+					{wrongAnsThree.replace('&#039;', "'")}
+				</Button>
 			</ButtonGroup>
 		</Container>
 	)
