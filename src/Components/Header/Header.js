@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -15,6 +15,7 @@ import FunctionsIcon from '@material-ui/icons/Functions'
 import PetsIcon from '@material-ui/icons/Pets'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
+import Difficulty from '../Difficulty/Difficulty'
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props
@@ -70,9 +71,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 }))
 
-const Header = () => {
+const Header = (props) => {
 	const classes = useStyles()
-	const [value, setValue] = React.useState(0)
+	const [value, setValue] = useState(0)
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue)
@@ -94,54 +95,105 @@ const Header = () => {
 						label='General Knowledge'
 						icon={<AllInclusiveIcon />}
 						{...a11yProps(0)}
+						onClick={() =>
+							props.setCategory(
+								9
+							)
+						}
 					/>
 					<Tab
 						label='Movies'
 						icon={<TheatersIcon />}
 						{...a11yProps(1)}
+						onClick={() =>
+							props.setCategory(
+								11
+							)
+						}
 					/>
 					<Tab
 						label='TV'
 						icon={<TvIcon />}
 						{...a11yProps(2)}
+						onClick={() =>
+							props.setCategory(
+								14
+							)
+						}
 					/>
 					<Tab
 						label='Video Games'
 						icon={<VideogameAssetIcon />}
 						{...a11yProps(3)}
+						onClick={() =>
+							props.setCategory(
+								15
+							)
+						}
 					/>
 					<Tab
 						label='Board Games'
 						icon={<GamepadIcon />}
 						{...a11yProps(4)}
+						onClick={() =>
+							props.setCategory(
+								16
+							)
+						}
 					/>
 					<Tab
 						label='Science and Nature'
 						icon={<NatureIcon />}
 						{...a11yProps(5)}
+						onClick={() =>
+							props.setCategory(
+								17
+							)
+						}
 					/>
 					<Tab
 						label='Mathematics'
 						icon={<FunctionsIcon />}
 						{...a11yProps(6)}
+						onClick={() =>
+							props.setCategory(
+								19
+							)
+						}
 					/>
 					<Tab
 						label='Sports'
 						icon={<SportsRugbyIcon />}
 						{...a11yProps(7)}
+						onClick={() =>
+							props.setCategory(
+								21
+							)
+						}
 					/>
 					<Tab
 						label='Geography'
 						icon={<NatureIcon />}
 						{...a11yProps(8)}
+						onClick={() =>
+							props.setCategory(
+								22
+							)
+						}
 					/>
 					<Tab
 						label='Animals'
 						icon={<PetsIcon />}
 						{...a11yProps(9)}
+						onClick={() =>
+							props.setCategory(
+								27
+							)
+						}
 					/>
 				</Tabs>
 			</AppBar>
+			<Difficulty difficulty={props.difficulty} setDifficulty={props.setDifficulty} />
 			<TabPanel value={value} index={0}>
 				General Knowledge
 			</TabPanel>
