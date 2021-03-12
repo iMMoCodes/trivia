@@ -12,6 +12,11 @@ const Difficulty = (props) => {
 		setBgTwo('#111')
 		setBgThree('#111')
 		props.setDifficulty('easy')
+		props.setPlayerOneScore(0)
+		props.setPlayerTwoScore(0)
+		props.setPlayerThreeScore(0)
+		props.setPlayerFourScore(0)
+		props.setPlayerTurn(1)
 	}
 
 	const handleMediumDifficulty = () => {
@@ -19,6 +24,11 @@ const Difficulty = (props) => {
 		setBgTwo('blue')
 		setBgThree('#111')
 		props.setDifficulty('medium')
+		props.setPlayerOneScore(0)
+		props.setPlayerTwoScore(0)
+		props.setPlayerThreeScore(0)
+		props.setPlayerFourScore(0)
+		props.setPlayerTurn(1)
 	}
 
 	const handleHardDifficulty = () => {
@@ -26,6 +36,11 @@ const Difficulty = (props) => {
 		setBgOne('#111')
 		setBgTwo('#111')
 		setBgThree('red')
+		props.setPlayerOneScore(0)
+		props.setPlayerTwoScore(0)
+		props.setPlayerThreeScore(0)
+		props.setPlayerFourScore(0)
+		props.setPlayerTurn(1)
 	}
 
 	return (

@@ -77,6 +77,11 @@ const Header = (props) => {
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue)
+		props.setPlayerOneScore(0)
+		props.setPlayerTwoScore(0)
+		props.setPlayerThreeScore(0)
+		props.setPlayerFourScore(0)
+		props.setPlayerTurn(1)
 	}
 
 	return (
@@ -193,7 +198,15 @@ const Header = (props) => {
 					/>
 				</Tabs>
 			</AppBar>
-			<Difficulty difficulty={props.difficulty} setDifficulty={props.setDifficulty} />
+			<Difficulty
+				difficulty={props.difficulty}
+				setDifficulty={props.setDifficulty}
+				setPlayerOneScore={props.setPlayerOneScore}
+				setPlayerTwoScore={props.setPlayerTwoScore}
+				setPlayerThreeScore={props.setPlayerThreeScore}
+				setPlayerFourScore={props.setPlayerFourScore}
+				setPlayerTurn={props.setPlayerTurn}
+			/>
 			<TabPanel value={value} index={0}>
 				General Knowledge
 			</TabPanel>

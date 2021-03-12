@@ -21,6 +21,11 @@ function App() {
 				setCategory={setCategory}
 				difficulty={difficulty}
 				setDifficulty={setDifficulty}
+				setPlayerOneScore={setPlayerOneScore}
+				setPlayerTwoScore={setPlayerTwoScore}
+				setPlayerThreeScore={setPlayerThreeScore}
+				setPlayerFourScore={setPlayerFourScore}
+				setPlayerTurn={setPlayerTurn}
 			/>
 			<Questions
 				questions={questions}
