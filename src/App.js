@@ -3,6 +3,7 @@ import Header from './Components/Header/Header'
 import Questions from './Components/Question/Questions'
 import Scores from './Components/Scores/Scores'
 import Players from './Components/Players/Players'
+import PlayerTurn from './Components/PlayerTurn/PlayerTurn'
 
 function App() {
 	const [questions, setQuestions] = useState([])
@@ -44,6 +45,7 @@ function App() {
 				playerTurn={playerTurn}
 				setPlayerTurn={setPlayerTurn}
 			/>
+			<PlayerTurn playerTurn={playerTurn} />
 			<Scores
 				playerOneScore={playerOneScore}
 				playerTwoScore={playerTwoScore}

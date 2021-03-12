@@ -44,18 +44,36 @@ const Players = () => {
 	const classes = useStyles()
 
 	return (
-		<Container
-			style={{
-				display: 'flex',
-				background: '#111',
-				justifyContent: 'space-around',
-			}}
-		>
-			<CssTextField className={classes.margin} label='Player 1' variant='outlined' />
-			<CssTextField className={classes.margin} label='Player 2' variant='outlined' />
-			<CssTextField className={classes.margin} label='Player 3' variant='outlined' />
-			<CssTextField className={classes.margin} label='Player 4' variant='outlined' />
-		</Container>
+		<>
+			<Container
+				style={{
+					display: 'flex',
+					background: '#111',
+					justifyContent: 'space-around',
+				}}
+			>
+				<CssTextField
+					className={classes.margin}
+					label='Player 1'
+					variant='outlined'
+				/>
+				<CssTextField
+					className={classes.margin}
+					label='Player 2'
+					variant='outlined'
+				/>
+				<CssTextField
+					className={classes.margin}
+					label='Player 3'
+					variant='outlined'
+				/>
+				<CssTextField
+					className={classes.margin}
+					label='Player 4'
+					variant='outlined'
+				/>
+			</Container>
+		</>
 	)
 }
 

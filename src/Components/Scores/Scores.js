@@ -7,7 +7,6 @@ const Scores = (props) => {
 			style={{
 				display: 'flex',
 				background: '#111',
-				marginTop: '20px',
 				justifyContent: 'space-around',
 				color: 'green',
 			}}
