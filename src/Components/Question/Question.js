@@ -1,20 +1,103 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 
 // Styling
 const buttonStyles = {
-	padding: '1rem',
-	fontSize: '1.5rem',
+	fontSize: '2rem',
 	flex: '1',
 	margin: '10px 10px',
 	borderRadius: '20px',
+	border: '1px solid black',
 	textTransform: 'capitalize',
+	background: 'blue',
+	color: 'white',
 }
 
-const Question = ({ question, correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThree }) => {
+const Question = ({
+	question,
+	correctAns,
+	wrongAnsOne,
+	wrongAnsTwo,
+	wrongAnsThree,
+	playerOneScore,
+	setPlayerOneScore,
+	playerTwoScore,
+	setPlayerTwoScore,
+	playerThreeScore,
+	setPlayerThreeScore,
+	playerFourScore,
+	setPlayerFourScore,
+	playerTurn,
+	setPlayerTurn,
+}) => {
 	const answers = [correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThree]
+
+	const handleClick = (e) => {
+		console.log(e)
+		if (
+			e.target.innerHTML ===
+			correctAns
+				.replace('&#039;', "'")
+				.replace('&rsquo;', "'")
+				.replace('&aacute;', 'á')
+				.replace('&iacute;', 'í')
+				.replace('&Eacute;', 'é')
+				.replace('&lrm;', '.')
+				.replace('&oacute;', 'ó')
+		) {
+			e.target.parentElement.style.background = 'green'
+			if (playerTurn === 1) {
+				setPlayerOneScore(playerOneScore + 1)
+				setPlayerTurn(playerTurn + 1)
+			} else if (playerTurn === 2) {
+				setPlayerTwoScore(playerTwoScore + 1)
+				setPlayerTurn(playerTurn + 1)
+			} else if (playerTurn === 3) {
+				setPlayerThreeScore(playerThreeScore + 1)
+				setPlayerTurn(playerTurn + 1)
+			} else {
+				setPlayerFourScore(playerFourScore + 1)
+				setPlayerTurn(1)
+			}
+		} else if (
+			e.target.innerHTML ===
+				wrongAnsOne
+					.replace('&#039;', "'")
+					.replace('&rsquo;', "'")
+					.replace('&aacute;', 'á')
+					.replace('&iacute;', 'í')
+					.replace('&Eacute;', 'é')
+					.replace('&lrm;', '.')
+					.replace('&oacute;', 'ó') ||
+			e.target.innerHTML ===
+				wrongAnsTwo
+					.replace('&#039;', "'")
+					.replace('&rsquo;', "'")
+					.replace('&aacute;', 'á')
+					.replace('&iacute;', 'í')
+					.replace('&Eacute;', 'é')
+					.replace('&lrm;', '.')
+					.replace('&oacute;', 'ó') ||
+			e.target.innerHTML ===
+				wrongAnsThree
+					.replace('&#039;', "'")
+					.replace('&rsquo;', "'")
+					.replace('&aacute;', 'á')
+					.replace('&iacute;', 'í')
+					.replace('&Eacute;', 'é')
+					.replace('&lrm;', '.')
+					.replace('&oacute;', 'ó')
+		) {
+			e.target.parentElement.style.background = 'red'
+			if (playerTurn === 1 || playerTurn === 2 || playerTurn === 3) {
+				setPlayerTurn(playerTurn + 1)
+			} else {
+				setPlayerTurn(1)
+			}
+		}
+	}
 
 	const shuffleAnswers = (array) => {
 		let currentIndex = array.length,
@@ -50,41 +133,58 @@ const Question = ({ question, correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThre
 					.replace('&rdquo;', "'")
 					.replace('&hellip;', '_')
 					.replace('&pi;', 'pi')
-					.replace('&eacute;', 'é')}
+					.replace('&eacute;', 'é')
+					.replace('&shy;', '-')
+					.replace('&shy;', '-')
+					.replace('&shy;', '-')
+					.replace('&shy;', '-')
+					.replace('&shy;', '-')
+					.replace('&shy;', '-')
+					.replace('&shy;', '-')
+					.replace('&shy;', '-')}
 			</h1>
 			<ButtonGroup
 				variant='contained'
-				color='primary'
-				aria-label='contained primary button group'
-				style={{ display: 'flex' }}
+				aria-label='primary button group'
+				style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}
 			>
-				<Button style={buttonStyles}>
-					{answers[0]
-						.replace('&#039;', "'")
-						.replace('&rsquo;', "'")}
-				</Button>
-				<Button style={buttonStyles}>
-					{answers[1]
-						.replace('&#039;', "'")
-						.replace('&rsquo;', "'")}
-				</Button>
-			</ButtonGroup>
-			<ButtonGroup
-				variant='contained'
-				color='primary'
-				aria-label='contained primary button group'
-				style={{ display: 'flex' }}
-			>
-				<Button style={buttonStyles}>
-					{answers[2]
-						.replace('&#039;', "'")
-						.replace('&rsquo;', "'")}
-				</Button>
-				<Button style={buttonStyles}>
-					{answers[3]
-						.replace('&#039;', "'")
-						.replace('&rsquo;', "'")}
-				</Button>
+				{answers.map((answer) => (
+					<Button
+						key={answer}
+						style={buttonStyles}
+						onClick={handleClick}
+					>
+						{answer
+							.replace(
+								'&#039;',
+								"'"
+							)
+							.replace(
+								'&rsquo;',
+								"'"
+							)
+							.replace(
+								'&aacute;',
+								'á'
+							)
+							.replace(
+								'&iacute;',
+								'í'
+							)
+							.replace(
+								'&Eacute;',
+								'é'
+							)
+							.replace(
+								'&lrm;',
+								'.'
+							)
+							.replace(
+								'&oacute;',
+								'ó'
+							)}
+					</Button>
+				))}
 			</ButtonGroup>
 		</Container>
 	)
