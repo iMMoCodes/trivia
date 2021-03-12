@@ -11,7 +11,6 @@ const Questions = (props) => {
 			`https://opentdb.com/api.php?amount=1&category=${props.category}&difficulty=${props.difficulty}&type=multiple`
 		)
 		const data = await response.json()
-		console.log(data.results)
 		props.setQuestions(data.results)
 	}
 

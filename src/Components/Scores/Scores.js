@@ -8,7 +8,7 @@ const Scores = (props) => {
 				display: 'flex',
 				background: '#111',
 				justifyContent: 'space-around',
-				color: 'green',
+				color: 'white',
 			}}
 		>
 			<h1>{props.playerOneScore}</h1>

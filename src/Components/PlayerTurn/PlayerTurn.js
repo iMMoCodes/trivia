@@ -7,7 +7,7 @@ const PlayerTurn = (props) => {
 			style={{
 				display: 'flex',
 				background: '#111',
-				color: 'green',
+				color: 'white',
 				justifyContent: 'center',
 				fontSize: '1.5rem',
 			}}
