@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
@@ -46,6 +46,8 @@ const Question = ({
 				.replace('&Eacute;', 'é')
 				.replace('&lrm;', '.')
 				.replace('&oacute;', 'ó')
+				.replace('&ouml;', 'ö')
+				.replace('&amp;', '&')
 		) {
 			e.target.parentElement.style.background = 'green'
 			if (playerTurn === 1) {
@@ -70,7 +72,9 @@ const Question = ({
 					.replace('&iacute;', 'í')
 					.replace('&Eacute;', 'é')
 					.replace('&lrm;', '.')
-					.replace('&oacute;', 'ó') ||
+					.replace('&oacute;', 'ó')
+					.replace('&ouml;', 'ö')
+					.replace('&amp;', '&') ||
 			e.target.innerHTML ===
 				wrongAnsTwo
 					.replace('&#039;', "'")
@@ -79,7 +83,9 @@ const Question = ({
 					.replace('&iacute;', 'í')
 					.replace('&Eacute;', 'é')
 					.replace('&lrm;', '.')
-					.replace('&oacute;', 'ó') ||
+					.replace('&oacute;', 'ó')
+					.replace('&ouml;', 'ö')
+					.replace('&amp;', '&') ||
 			e.target.innerHTML ===
 				wrongAnsThree
 					.replace('&#039;', "'")
@@ -89,6 +95,8 @@ const Question = ({
 					.replace('&Eacute;', 'é')
 					.replace('&lrm;', '.')
 					.replace('&oacute;', 'ó')
+					.replace('&ouml;', 'ö')
+					.replace('&amp;', '&')
 		) {
 			e.target.parentElement.style.background = 'red'
 			if (playerTurn === 1 || playerTurn === 2 || playerTurn === 3) {
@@ -141,7 +149,8 @@ const Question = ({
 					.replace('&shy;', '-')
 					.replace('&shy;', '-')
 					.replace('&shy;', '-')
-					.replace('&shy;', '-')}
+					.replace('&shy;', '-')
+					.replace('&amp;', '&')}
 			</h1>
 			<ButtonGroup
 				variant='contained'
@@ -182,6 +191,14 @@ const Question = ({
 							.replace(
 								'&oacute;',
 								'ó'
+							)
+							.replace(
+								'&ouml;',
+								'ö'
+							)
+							.replace(
+								'&amp;',
+								'&'
 							)}
 					</Button>
 				))}
