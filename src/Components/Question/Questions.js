@@ -11,7 +11,9 @@ const Questions = (props) => {
 			`https://opentdb.com/api.php?amount=1&category=${props.category}&difficulty=${props.difficulty}&type=multiple`
 		)
 		const data = await response.json()
-		props.setQuestions(data.results)
+		setTimeout(() => {
+			props.setQuestions(data.results)
+		}, 1500)
 	}
 
 	return (

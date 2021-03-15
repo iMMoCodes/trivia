@@ -13,6 +13,7 @@ const buttonStyles = {
 	textTransform: 'capitalize',
 	background: 'blue',
 	color: 'white',
+	PointerEvent: 'none',
 }
 
 const Question = ({
@@ -35,6 +36,17 @@ const Question = ({
 	const answers = [correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThree]
 
 	const handleClick = (e) => {
+		const buttons = Array.from(e.target.parentNode.parentNode.childNodes)
+		buttons.map((button) => {
+			if (
+				button.innerHTML ===
+				`<span class="MuiButton-label">${correctAns}</span><span class="MuiTouchRipple-root"></span>`
+			) {
+				button.style.background = 'green'
+			} else {
+				button.style.background = '#111'
+			}
+		})
 		if (
 			e.target.innerHTML ===
 			correctAns
@@ -106,7 +118,7 @@ const Question = ({
 		}
 	}
 
-	const shuffleAnswers = (array) => {
+	function shuffleAnswers(array) {
 		let currentIndex = array.length,
 			temporaryValue,
 			randomIndex
@@ -154,7 +166,10 @@ const Question = ({
 			<ButtonGroup
 				variant='contained'
 				aria-label='primary button group'
-				style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}
+				style={{
+					display: 'grid',
+					gridTemplateColumns: '1fr 1fr',
+				}}
 			>
 				{answers.map((answer) => (
 					<Button
