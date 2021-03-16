@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
@@ -18,6 +18,7 @@ const buttonStyles = {
 
 const Question = ({
 	question,
+	answers,
 	correctAns,
 	wrongAnsOne,
 	wrongAnsTwo,
@@ -33,8 +34,6 @@ const Question = ({
 	playerTurn,
 	setPlayerTurn,
 }) => {
-	const answers = [correctAns, wrongAnsOne, wrongAnsTwo, wrongAnsThree]
-
 	const handleClick = (e) => {
 		const buttons = Array.from(e.target.parentNode.parentNode.childNodes)
 		buttons.map((button) => {
@@ -117,24 +116,6 @@ const Question = ({
 			}
 		}
 	}
-
-	function shuffleAnswers(array) {
-		let currentIndex = array.length,
-			temporaryValue,
-			randomIndex
-
-		while (0 !== currentIndex) {
-			randomIndex = Math.floor(Math.random() * currentIndex)
-			currentIndex -= 1
-
-			temporaryValue = array[currentIndex]
-			array[currentIndex] = array[randomIndex]
-			array[randomIndex] = temporaryValue
-		}
-		return array
-	}
-
-	shuffleAnswers(answers)
 
 	return (
 		<Container style={{ background: '#111', color: 'white' }}>
