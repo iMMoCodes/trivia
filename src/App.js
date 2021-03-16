@@ -4,6 +4,7 @@ import Questions from './Components/Question/Questions'
 import Scores from './Components/Scores/Scores'
 import Players from './Components/Players/Players'
 import PlayerTurn from './Components/PlayerTurn/PlayerTurn'
+import End from './Components/EndScreen/End'
 
 function App() {
 	const [questions, setQuestions] = useState([])
@@ -28,30 +29,68 @@ function App() {
 				setPlayerFourScore={setPlayerFourScore}
 				setPlayerTurn={setPlayerTurn}
 			/>
-			<Questions
-				questions={questions}
-				setQuestions={setQuestions}
-				difficulty={difficulty}
-				setDifficulty={setDifficulty}
-				category={category}
-				playerOneScore={playerOneScore}
-				setPlayerOneScore={setPlayerOneScore}
-				playerTwoScore={playerTwoScore}
-				setPlayerTwoScore={setPlayerTwoScore}
-				playerThreeScore={playerThreeScore}
-				setPlayerThreeScore={setPlayerThreeScore}
-				playerFourScore={playerFourScore}
-				setPlayerFourScore={setPlayerFourScore}
-				playerTurn={playerTurn}
-				setPlayerTurn={setPlayerTurn}
-			/>
-			<PlayerTurn playerTurn={playerTurn} />
-			<Scores
-				playerOneScore={playerOneScore}
-				playerTwoScore={playerTwoScore}
-				playerThreeScore={playerThreeScore}
-				playerFourScore={playerFourScore}
-			/>
+			{playerOneScore === 10 ||
+			playerTwoScore === 10 ||
+			playerThreeScore === 10 ||
+			playerFourScore === 10 ? (
+				<End
+					playerOneScore={playerOneScore}
+					playerTwoScore={playerTwoScore}
+					playerThreeScore={playerThreeScore}
+					playerFourScore={playerFourScore}
+				/>
+			) : (
+				<>
+					<Questions
+						questions={questions}
+						setQuestions={setQuestions}
+						difficulty={difficulty}
+						setDifficulty={setDifficulty}
+						category={category}
+						playerOneScore={
+							playerOneScore
+						}
+						setPlayerOneScore={
+							setPlayerOneScore
+						}
+						playerTwoScore={
+							playerTwoScore
+						}
+						setPlayerTwoScore={
+							setPlayerTwoScore
+						}
+						playerThreeScore={
+							playerThreeScore
+						}
+						setPlayerThreeScore={
+							setPlayerThreeScore
+						}
+						playerFourScore={
+							playerFourScore
+						}
+						setPlayerFourScore={
+							setPlayerFourScore
+						}
+						playerTurn={playerTurn}
+						setPlayerTurn={setPlayerTurn}
+					/>
+					<PlayerTurn playerTurn={playerTurn} />
+					<Scores
+						playerOneScore={
+							playerOneScore
+						}
+						playerTwoScore={
+							playerTwoScore
+						}
+						playerThreeScore={
+							playerThreeScore
+						}
+						playerFourScore={
+							playerFourScore
+						}
+					/>
+				</>
+			)}
 			<Players />
 		</>
 	)
