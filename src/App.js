@@ -35,9 +35,14 @@ function App() {
 			playerFourScore === 10 ? (
 				<End
 					playerOneScore={playerOneScore}
+					setPlayerOneScore={setPlayerOneScore}
 					playerTwoScore={playerTwoScore}
+					setPlayerTwoScore={setPlayerTwoScore}
 					playerThreeScore={playerThreeScore}
+					setPlayerThreeScore={setPlayerThreeScore}
 					playerFourScore={playerFourScore}
+					setPlayerFourScore={setPlayerFourScore}
+					setPlayerTurn={setPlayerTurn}
 				/>
 			) : (
 				<>

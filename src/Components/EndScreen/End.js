@@ -3,6 +3,14 @@ import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
 
 const End = (props) => {
+	const resetScores = () => {
+		props.setPlayerOneScore(0)
+		props.setPlayerTwoScore(0)
+		props.setPlayerThreeScore(0)
+		props.setPlayerFourScore(0)
+		props.setPlayerTurn(1)
+	}
+
 	let playerName = ''
 	if (props.playerOneScore === 10) {
 		playerName = 'Player One'
@@ -31,6 +39,7 @@ const End = (props) => {
 			<h1 style={{ fontSize: '4rem', color: 'white' }}>Game Over!</h1>
 			<h1 style={{ fontSize: '3rem', color: 'white' }}>{playerName} has Won</h1>
 			<Button
+				onClick={resetScores}
 				style={{
 					fontSize: '2rem',
 					margin: '10px 10px',
